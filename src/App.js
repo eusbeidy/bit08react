@@ -1,14 +1,14 @@
 import './App.css';
-import Button from 'react-bootstrap/Button';
-import listas from './componentes/listas';
+import { List } from './componentes/list';
+import { Listas } from './componentes/listas';
+
 
 function App() {
   return (
-    <header/>
-    /*<div className="App">
-      <p>En construcción</p>
-      <Button variant="primary">Primary</Button>
-    </div>*/
+    <>
+  <Listas/>
+  <List/>
+    </>
   );
 }
 
