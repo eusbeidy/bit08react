@@ -1,1 +1,59 @@
 
+body{
+    background-color: rgb(108, 25, 243);
+    color:black;
+}
+.App {
+    text-align: center;
+    
+}
+
+.artBg {
+    background-color: rgb(130, 130, 247);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px 140px 10px 15px;
+    text-align: left;
+    font: 20px;
+    position: relative;
+
+}
+.artBg div {
+  display: flex;
+  align-items: center;
+}
+    
+.artNumber{
+    color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 10px;
+    align-items: center;
+    justify-content: center;
+}
+.artBg .done .artText{
+    text-decoration: line-through;
+    opacity: o.3;
+    flex: 1;
+}
+
+.icons{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    width: auto;
+    display: inline-block;
+}
+
+.artBg .icons span{
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    cursor: pointer;
+    color: azure;
+}
