@@ -36,10 +36,14 @@ body{
     align-items: center;
     justify-content: center;
 }
+.artBg .artText{
+    flex: 1;
+
+}
 .artBg .done .artText{
     text-decoration: line-through;
     opacity: o.3;
-    flex: 1;
+    
 }
 
 .icons{
@@ -56,4 +60,7 @@ body{
     margin: 0 10px 0 10px;
     cursor: pointer;
     color: azure;
+}
+.artBg .icons span:hover{
+    color: red;
 }
