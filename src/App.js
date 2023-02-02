@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
+import AgregarListaForm from './componentes/AgregarListaForm'
+import ActualizarForm from './componentes/ActualizarForm'
+import List from './componentes/List'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faCheck, faPen, faXmark
-} from '@fortawesome/free-solid-svg-icons'
 import './App.css';
 
 function App() {
@@ -30,8 +29,8 @@ const AgregarArt = () => {
 };
  // Eliminar artista
  const EliminarArt = (id) =>{
-  let nuevoArts = list.filter( list => list.id !== id)
-  setList(nuevoArts);
+  let nuevoArt = list.filter( list => list.id !== id)
+  setList(nuevoArt);
  };
 
  //marcar artista realizado
@@ -48,89 +47,64 @@ const AgregarArt = () => {
  };
  // cancelar actualizacion
  const CancelarActualizacion = () => {
+  setActualizarArt('');
+  
+
 
  };
 
  // cambiar la tarea y actualizarla 
 
  const CambiarArt = (e) =>{
+  let nuevaEntreda= { 
+    id: actualizarArt.id,
+    title: e.target.value,
+    status: actualizarArt.status ? true : false
+  }
+  setActualizarArt(nuevaEntreda);
 
  };
 
  // Actualizar Artista
- const ActualizarArt = (e) =>{
-
-
+ const ActualizarArt = () =>{
+  let filtrar = [...list].filter(list => list.id !== actualizarArt.id);
+  let actualizar = [...filtrar, actualizarArt]
+  setList(actualizar);
+  setActualizarArt('');
  };
 
   return (
     <>
      <div className='container App'>
       <br></br>
-      <h1>Lista de Artistas Favoritos.</h1>
+      <h1>Lista de Cantantes Favoritos.</h1>
       <br></br>
+
       {/* actualizar tareas*/}
-      <div className='form'>
-        <div className='col'>
-          <input className='form-control form-control-lg'/>
-        </div>
-        <div className='col-auto'>
-          <button className='btn btn-lg btn-success mr-20'>Actualizar</button>
 
-        </div>
-        <div className='col-auto'>
-          <button className='btn btn-lg btn-warning'> Cancelar</button>
-        </div>
-         </div>
-         <br></br>
-         {/*Agregar tareas*/ }
-      <div className='form'>
-        <div className='col'>
-          <input
-          value={nuevoArt} 
-          onChange={(e) => setNuevoArt(e.target.value)}
-          className='form-control form-control-lg'/>
-        </div>
-        <div className='col-auto'>
-          <button
-          onClick={AgregarArt} 
-          className='btn btn-lg btn-success'>Agregar</button>
-        </div>
-
-      </div>
-      <br></br>
+      {actualizarArt && actualizarArt ? (
+        <ActualizarForm
+        actualizarArt={actualizarArt}
+        CambiarArt={CambiarArt}
+        ActualizarArt={ActualizarArt}
+        CancelarActualizacion ={CancelarActualizacion}
+        />
+      ) : (
+        <AgregarListaForm
+        nuevoArt= {nuevoArt}
+        setNuevoArt= {setNuevoArt}
+        AgregarArt={AgregarArt}
+        />
+      )}
 
        {list && list.length ? '' : 'Upss no hay ninguna lista...'}
+       <List
+       list={list}
+       Realizado={Realizado}
+       setActualizarArt={setActualizarArt}
+       EliminarArt={EliminarArt}
 
-       {list && list 
-       .sort((a, b) => a.id > b.id ? 1 : -1)
-       .map( (list, index) => {
-        return(
-          <React.Fragment key={list.id}>
-
-            <div className="col artBg">
-              <div className={list.status ? 'done' : ''}>
-              <span className="artNumber"> {index + 1}</span>
-              <span className="artText">{list.title}</span>    
-              </div>
-              <div className="icons"> 
-              <span title='completada / no completada'
-                onClick= { (e) => Realizado(list.id)}>
-                <FontAwesomeIcon icon={faCheck}/>
-              </span>
-              <span title='Editar'>
-                <FontAwesomeIcon icon={faPen}/>
-              </span>
-              <span title='Eliminar' onClick={() => EliminarArt(list.id)}>
-                <FontAwesomeIcon icon={faXmark}/>
-              </span>
-                </div>
-            </div>
-            
-          </React.Fragment>
-        )
-       })
-       }
+       />
 
      </div>
     </>

@@ -64,3 +64,7 @@ body{
 .artBg .icons span:hover{
     color: red;
 }
+.mr-20{
+    margin-right: 20px;
+    
+}
