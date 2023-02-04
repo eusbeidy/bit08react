@@ -9,8 +9,8 @@ function App() {
 //Aqui se van a menejar los estados usestate
 const [list, setList] = useState([
   {"id": 2, "title": "Ricardo Arjona", "status":false},
-  {"id": 1, "title": "Vicente Fernandez", "status":false},
-  {"id": 3, "title": "RBD Rebelde", "status":false},
+  {"id": 1, "title": "Vicente Fernández", "status":false},
+  {"id": 3, "title": "HA*Ash", "status":false},
 ]);
 
 // list state
@@ -77,7 +77,7 @@ const AgregarArt = () => {
     <>
      <div className='container App'>
       <br></br>
-      <h1>Lista de Cantantes Favoritos.</h1>
+      <h1>Lista de Cantantes Favoritos</h1>
       <br></br>
 
       {/* actualizar tareas*/}

@@ -1,21 +1,31 @@
 
 body{
-    background-color: rgb(108, 25, 243);
+    background-image: url("https://lh4.googleusercontent.com/Fc-poJg3kjbi0xtCJy2dcz4LYXaV0IF1cFOH_gSgpTx02RWgxQGjxD4tAhyhDj0-EjzWtP6CPc2hFdJMgmecXv44gw6H99LbIh7uLAKh6Mp9Nawo4YWHVWbd4U7zE30kQgc-EJrQ");
     color:black;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 .App {
     text-align: center;
     
 }
+h1{
+    font-size: 2rem;
+    box-shadow: 0 0 15px 15px;
+    font-family: 'Merienda One', cursive;
+    color: bue;
+}
 
 .artBg {
-    background-color: rgb(130, 130, 247);
-    border-radius: 5px;
-    margin-bottom: 10px;
+   background-color: darkgrey;
+    border-radius: 15px;
+    margin-bottom: 15px;
     padding: 10px 140px 10px 15px;
     text-align: left;
-    font: 20px;
+    font: 18px;
     position: relative;
+    box-shadow: 0 0 15px 0;
 
 }
 .artBg div {
@@ -31,22 +41,23 @@ body{
     height: 26px;
     display: flex;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     margin-right: 10px;
     align-items: center;
     justify-content: center;
 }
 .artBg .artText{
-    flex: 1;
+    flex: 2;
 
 }
 .artBg .done .artText{
     text-decoration: line-through;
-    opacity: o.3;
+    opacity: 0.6;
     
 }
 
 .icons{
+    font-size: 20px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -62,9 +73,9 @@ body{
     color: azure;
 }
 .artBg .icons span:hover{
-    color: red;
+    color: rgb(20, 223, 104);
 }
 .mr-20{
-    margin-right: 20px;
+    margin-right: 5px;
     
 }
